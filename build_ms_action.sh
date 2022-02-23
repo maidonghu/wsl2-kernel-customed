@@ -12,5 +12,5 @@ cp ../..config .config
 
 make -j $(nproc)
 
-cd ../..
+cd ../
 mkdir "artifact"
