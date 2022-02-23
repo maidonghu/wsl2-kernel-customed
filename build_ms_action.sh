@@ -14,3 +14,4 @@ make -j $(nproc)
 
 cd ../
 mkdir "artifact"
+cp WSL2-Linux-Kernel/arch/x86_64/boot/bzImage artifact/
