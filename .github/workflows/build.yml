@@ -9,6 +9,9 @@ on:
         required: false
         default: 'false'
   
+  
+env:
+  TZ: America/Vancouver
 
 jobs:
   build:
