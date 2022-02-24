@@ -35,10 +35,10 @@ jobs:
         sudo chown $USER:$GROUPS /workdir
     
     - name: Clone source code
-      working-directory: /
+      working-directory: /workdir
       run: |
         df -hT $PWD
-        sudo git clone https://github.com/microsoft/WSL2-Linux-Kernel.git
+        git clone https://github.com/microsoft/WSL2-Linux-Kernel.git
         
       
     - name: Build
