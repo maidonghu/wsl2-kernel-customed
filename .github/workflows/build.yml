@@ -42,6 +42,8 @@ jobs:
     - name: Build
       run: |
         sudo apt install -y build-essential flex bison dwarves libssl-dev libelf-dev
+        cd WSL2-Linux-Kernel
+        make -j $(nproc)
       
     - name: Artifact
       uses: actions/upload-artifact@v2
