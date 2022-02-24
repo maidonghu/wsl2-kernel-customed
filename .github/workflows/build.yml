@@ -43,7 +43,7 @@ jobs:
       
     - name: Build
       run: 
-        sudo bash build_action.sh
+        sudo bash build_ms_action.sh
       
     - name: Artifact
       uses: actions/upload-artifact@v2
