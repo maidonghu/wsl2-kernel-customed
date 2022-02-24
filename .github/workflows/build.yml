@@ -1,0 +1,30 @@
+name: Build WSL2 Kernel
+
+on:
+  push:
+    branches: [ main ]
+  
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Clone source code
+      working-directory: /workdir
+      run: |
+        df -hT $PWD
+        git clone https://github.com/microsoft/WSL2-Linux-Kernel.git
+        
+      
+    - name: Build
+        run: sudo bash build_action.sh
+      
+    - name: Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: ${{ github.workspace }}/artifact/
