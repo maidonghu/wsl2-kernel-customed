@@ -26,7 +26,8 @@ jobs:
         
       
     - name: Build
-        run: sudo bash build_action.sh
+      run: 
+        sudo bash build_action.sh
       
     - name: Artifact
         uses: actions/upload-artifact@v2
