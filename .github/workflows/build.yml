@@ -40,8 +40,8 @@ jobs:
         cp /config WSL2-Linux-Kernel/.config
             
     - name: Build
-      run: 
-        sudo bash build_ms_action.sh
+      run: |
+        sudo apt install -y build-essential flex bison dwarves libssl-dev libelf-dev
       
     - name: Artifact
       uses: actions/upload-artifact@v2
