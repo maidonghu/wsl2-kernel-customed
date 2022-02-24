@@ -33,7 +33,7 @@ jobs:
       run: |
         df -hT $PWD
         git clone https://github.com/microsoft/WSL2-Linux-Kernel -b linux-msft-wsl-5.10.y --single-branch WSL2-Linux-Kernel
-        
+        ln -sf /workdir/WSL2-Linux-Kernel $GITHUB_WORKSPACE/WSL2-Linux-Kernel
       
     - name: Build
       run: 
