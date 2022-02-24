@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Clone source code
-      working-directory: /workdir
+      working-directory: /
       run: |
         df -hT $PWD
         git clone https://github.com/microsoft/WSL2-Linux-Kernel.git
