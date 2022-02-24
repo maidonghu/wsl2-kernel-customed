@@ -32,7 +32,7 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone https://github.com/microsoft/WSL2-Linux-Kernel -b defalut WSL2-Linux-Kernel
+        git clone https://github.com/microsoft/WSL2-Linux-Kernel -b default WSL2-Linux-Kernel
         
       
     - name: Build
