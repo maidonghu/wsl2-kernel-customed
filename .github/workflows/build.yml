@@ -37,7 +37,7 @@ jobs:
       
     - name: Load custom configuration
       run: |
-        cp /config WSL2-Linux-Kernel/.config
+        cp config WSL2-Linux-Kernel/.config
             
     - name: Build
       run: |
