@@ -1,8 +1,8 @@
 name: Build WSL2 Kernel
 
 on:
-  push:
-    branches: [ main ]
+  repository_dispatch:
+  workflow_dispatch:
   
 
 jobs:
