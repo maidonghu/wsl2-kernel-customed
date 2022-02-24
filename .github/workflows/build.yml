@@ -30,7 +30,7 @@ jobs:
         sudo bash build_action.sh
       
     - name: Artifact
-        uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v2
         with:
           name: artifact
           path: ${{ github.workspace }}/artifact/
