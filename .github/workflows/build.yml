@@ -22,7 +22,7 @@ jobs:
       working-directory: /
       run: |
         df -hT $PWD
-        git clone https://github.com/microsoft/WSL2-Linux-Kernel.git
+        sudo git clone https://github.com/microsoft/WSL2-Linux-Kernel.git
         
       
     - name: Build
