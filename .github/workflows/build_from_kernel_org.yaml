@@ -29,8 +29,8 @@ jobs:
       uses: actions/checkout@main
 
     - name: Initialization environment
-      env:
-        DEBIAN_FRONTEND: noninteractive
+#      env:
+#        DEBIAN_FRONTEND: noninteractive
       run: |
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
@@ -62,8 +62,9 @@ jobs:
         make -j $(nproc)
         echo "::set-output name=status::success"
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
+
     - name: Upload comppied kernel
       uses: actions/upload-artifact@main
       with:
         name: kernel${{ env.FILE_DATE }}
-        path: linux-${LINUX_VERSION}/arch/x86/boot/bzImage
+        path: arch/x86/boot/bzImage
