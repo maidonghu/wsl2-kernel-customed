@@ -46,9 +46,9 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        wget ${{LINUX_URL}}linux_${{LINUX_VERSION}}.tar.xz
-        tar xfv linux_${{LINUX_VERSION}}.tar.xz 
-        ln -sf /workdir/linux_${{LINUX_VERSION}} $GITHUB_WORKSPACE/linux_${{LINUX_VERSION}}
+        wget ${{env.LINUX_URL}}linux_${{env.LINUX_VERSION}}.tar.xz
+        tar xfv linux_${{env.LINUX_VERSION}}.tar.xz 
+        ln -sf /workdir/linux_${{env.LINUX_VERSION}} $GITHUB_WORKSPACE/linux_${{env.LINUX_VERSION}}
         
     - name: Load custom configuration
       run: |
