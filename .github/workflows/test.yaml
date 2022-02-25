@@ -40,9 +40,16 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
+    
     - name: Clone source code
       working-directory: /workdir
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH --single-branch WSL2-Linux-Kernel
         ln -sf /workdir/WSL2-Linux-Kernel $GITHUB_WORKSPACE/WSL2-Linux-Kernel
+        
+    - name: Load custom configuration
+      run: |
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE WSL2-Linux-Kernel/.config
+           
+    
