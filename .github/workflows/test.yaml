@@ -56,9 +56,14 @@ jobs:
     - name: Compile the kernel
       id: compile
       run: |
-        sudo apt install -y build-essential flex bison dwarves libssl-dev libelf-dev
         cd WSL2-Linux-Kernel
         echo -e "$(nproc) thread compile"
         make -j $(nproc)
         echo "::set-output name=status::success"
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
+
+    - name: Upload comppied kernel
+      uses: actions/upload-artifact@main
+      with:
+        name: kernel${{ env.FILE_DATE }}
+        path: WSL2-Linux-Kernel/arch/x86/boot/bzImage
