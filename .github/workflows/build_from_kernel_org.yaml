@@ -46,18 +46,18 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        wget ${{env.LINUX_URL}}linux_${{env.LINUX_VERSION}}.tar.xz
-        tar xfv linux_${{env.LINUX_VERSION}}.tar.xz 
-        ln -sf /workdir/linux_${{env.LINUX_VERSION}} $GITHUB_WORKSPACE/linux_${{env.LINUX_VERSION}}
+        wget ${LINUX_URL}linux_${LINUX_VERSION}.tar.xz
+        tar xfv linux_${LINUX_VERSION}.tar.xz 
+        ln -sf /workdir/linux_${LINUX_VERSION} $GITHUB_WORKSPACE/linux_${LINUX_VERSION}
         
     - name: Load custom configuration
       run: |
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE linux_${{LINUX_VERSION}}/.config
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE linux_${LINUX_VERSION}/.config
            
     - name: Compile the kernel
       id: compile
       run: |
-        cd linux_${{LINUX_VERSION}}
+        cd linux_${LINUX_VERSION}
         echo -e "$(nproc) thread compile"
         make -j $(nproc)
         echo "::set-output name=status::success"
@@ -66,4 +66,4 @@ jobs:
       uses: actions/upload-artifact@main
       with:
         name: kernel${{ env.FILE_DATE }}
-        path: linux_${{LINUX_VERSION}}/arch/x86/boot/bzImage
+        path: linux_${LINUX_VERSION}/arch/x86/boot/bzImage
