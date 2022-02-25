@@ -46,7 +46,8 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH --single-branch --depth 1 WSL2-Linux-Kernel
+        wget $LINUX_URL$LINUX_FILE
+        tar xfv $LINUX_FILE 
         ln -sf /workdir/WSL2-Linux-Kernel $GITHUB_WORKSPACE/WSL2-Linux-Kernel
         
     - name: Load custom configuration
