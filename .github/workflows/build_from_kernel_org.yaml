@@ -52,12 +52,12 @@ jobs:
         
     - name: Load custom configuration
       run: |
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE WSL2-Linux-Kernel/.config
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE linux_$LINUX_VERSION/.config
            
     - name: Compile the kernel
       id: compile
       run: |
-        cd WSL2-Linux-Kernel
+        cd linux_$LINUX_VERSION
         echo -e "$(nproc) thread compile"
         make -j $(nproc)
         echo "::set-output name=status::success"
@@ -66,4 +66,4 @@ jobs:
       uses: actions/upload-artifact@main
       with:
         name: kernel${{ env.FILE_DATE }}
-        path: WSL2-Linux-Kernel/arch/x86/boot/bzImage
+        path: linux_$LINUX_VERSION/arch/x86/boot/bzImage
