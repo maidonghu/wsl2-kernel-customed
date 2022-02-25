@@ -44,5 +44,5 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH WSL2-Linux-Kernel
+        git clone $REPO_URL -b $REPO_BRANCH --single-branch WSL2-Linux-Kernel
         ln -sf /workdir/WSL2-Linux-Kernel $GITHUB_WORKSPACE/WSL2-Linux-Kernel
