@@ -11,7 +11,7 @@ on:
 
 env:
   LINUX_URL: https://cdn.kernel.org/pub/linux/kernel/v5.x/
-  LINUX_FILE: linux-5.10.102.tar.xz
+  LINUX_VERSION: linux-5.10.102.tar.xz
   CONFIG_FILE: config
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
@@ -46,9 +46,9 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        wget $LINUX_URL$LINUX_FILE
-        tar xfv $LINUX_FILE 
-        ln -sf /workdir/WSL2-Linux-Kernel $GITHUB_WORKSPACE/WSL2-Linux-Kernel
+        wget $LINUX_URLlinux_$LINUX_VERSION.tar.xz
+        tar xfv linux_$LINUX_VERSION.tar.xz 
+        ln -sf /workdir/linux_$LINUX_VERSION $GITHUB_WORKSPACE/linux_$LINUX_VERSION
         
     - name: Load custom configuration
       run: |
