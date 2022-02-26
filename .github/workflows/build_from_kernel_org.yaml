@@ -67,4 +67,4 @@ jobs:
       uses: actions/upload-artifact@main
       with:
         name: kernel${{ env.FILE_DATE }}
-        path: /workdir/linux-${LINUX_VERSION}/arch/x86/boot/bzImage
+        path: /workdir/linux-${{LINUX_VERSION}}/arch/x86/boot/bzImage
