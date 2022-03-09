@@ -1,4 +1,4 @@
-name: Test Build
+name: Build from Microsoft
 
 on:
   repository_dispatch:
