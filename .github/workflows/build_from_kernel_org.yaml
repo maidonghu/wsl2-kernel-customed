@@ -11,8 +11,8 @@ on:
 
 env:
   LINUX_URL: https://cdn.kernel.org/pub/linux/kernel/v5.x/
-  LINUX_VERSION: 5.10.124
-  CONFIG_FILE: config
+  LINUX_VERSION: 5.15.51
+  CONFIG_FILE: config_linux_5.15
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
